@@ -10,6 +10,9 @@ const User = ({ currUser, setCurrUser }) => {
       <div>
         Hello {currUser.email}
         <PrivateText currUser={currUser} />
+        {currUser.role === "admin" && (
+          <a href="http://127.0.0.1:3000/avo">Admin</a>
+        )}
         <Logout setCurrUser={setCurrUser} />
       </div>
     );
