@@ -68,12 +68,6 @@ export default function Radio() {
             return (
               <div className="station" key={index}>
                 <div className="stationName">
-                  <img
-                    className="logo"
-                    src={station.favicon}
-                    alt="station logo"
-                    onError={setDefaultSrc}
-                  />
                   <div className="name">{station.name}</div>
                 </div>
 
