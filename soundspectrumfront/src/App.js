@@ -1,13 +1,23 @@
-import { useState } from "react";
-import User from "./components/User";
-import Radio from "./components/Radio";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
+
 const App = () => {
-  const [currUser, setCurrUser] = useState(null);
   return (
-    <div className="App">
-      <User currUser={currUser} setCurrUser={setCurrUser} />
-      <Radio />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 export default App;

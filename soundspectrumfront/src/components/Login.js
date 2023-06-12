@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 const Login = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
   const login = async (userInfo, setCurrUser) => {
@@ -14,7 +15,6 @@ const Login = ({ setCurrUser, setShow }) => {
       });
       const data = await response.json();
       if (!response.ok) throw data.error;
-
       console.log(response.headers.get("Authorization"));
       localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrUser(data);
@@ -37,7 +37,7 @@ const Login = ({ setCurrUser, setShow }) => {
   };
   const handleClick = (e) => {
     e.preventDefault();
-    setShow(false);
+    setShow(true);
   };
   return (
     <div>
@@ -51,10 +51,10 @@ const Login = ({ setCurrUser, setShow }) => {
       </form>
       <br />
       <div>
-        Not registered yet,{" "}
-        <a href="#signup" onClick={handleClick}>
-          Signup
-        </a>{" "}
+        Pas encore inscrit?
+        <NavLink to="/signup" onClick={handleClick}>
+          s'inscrire
+        </NavLink>{" "}
       </div>
     </div>
   );

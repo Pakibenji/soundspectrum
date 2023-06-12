@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 const Signup = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
@@ -48,11 +49,10 @@ const Signup = ({ setCurrUser, setShow }) => {
       </form>
       <br />
       <div>
-        Already registered,{" "}
-        <a href="#login" onClick={handleClick}>
-          Login
-        </a>{" "}
-        here.
+        Déja inscrit?{" "}
+        <NavLink to="/login" onClick={handleClick}>
+          Se connecter
+        </NavLink>{" "}
       </div>
     </div>
   );

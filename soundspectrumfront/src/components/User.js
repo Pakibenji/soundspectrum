@@ -3,16 +3,13 @@ import Login from "./Login";
 import Logout from "./Logout";
 import PrivateText from "./PrivateText";
 import { useState } from "react";
-const User = ({ currUser, setCurrUser }) => {
+const User = ({ currUser, setCurrUser, setshow }) => {
   const [show, setShow] = useState(true);
   if (currUser)
     return (
       <div>
         Hello {currUser.email}
         <PrivateText currUser={currUser} />
-        {currUser.role === "admin" && (
-          <a href="http://127.0.0.1:3000/avo">Admin</a>
-        )}
         <Logout setCurrUser={setCurrUser} />
       </div>
     );
