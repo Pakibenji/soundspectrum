@@ -11,7 +11,6 @@ const Home = () => {
       <Header />
       {currUser == null && (
         <div>
-          {" "}
           <NavLink to="/login" currUser={currUser} setCurrUser={setCurrUser}>
             <button>Se connecter</button>
           </NavLink>
