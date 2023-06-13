@@ -1,4 +1,7 @@
 import { useRef } from "react";
+import logo from "../assets/img/spectrum.gif";
+import { NavLink } from "react-router-dom";
+
 const Login = ({ setCurrUser }) => {
   const formRef = useRef();
   const login = async (userInfo, setCurrUser) => {
@@ -35,19 +38,51 @@ const Login = ({ setCurrUser }) => {
     e.target.reset();
   };
   return (
-    <div className="form-container">
-      <div className="form-card">
-        <form ref={formRef} onSubmit={handleSubmit}>
-          Email: <input type="email" name="email" placeholder="email" />
-          <br />
-          Password:{" "}
-          <input type="password" name="password" placeholder="password" />
-          <br />
-          <input type="submit" value="Login" />
-        </form>
-        <br />
-    </div>
-    </div>
+    <>
+      <section className="connexion">
+        <h1>Connexion</h1>
+        <div className="form-container">
+          <div className="logo">
+            <img src={logo} alt="logo sound spectrum" />
+          </div>
+          <div className="form-card">
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <div className="email-container">
+                <input
+                  className="input-mail"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <i class="fa-regular fa-envelope" id="email"></i>
+              </div>
+              <div className="password-container">
+                <input
+                  className="input-password"
+                  type="password"
+                  name="password"
+                  placeholder="Mot de passe"
+                />
+                <i class="fa-solid fa-lock" id="lock"></i>
+              </div>
+
+              <button className="login" type="submit">
+                Connexion
+              </button>
+            </form>
+            <div className="navlink-container">
+              <NavLink className="inscription" to="/signup">
+                <p>Inscrivez-vous</p>
+              </NavLink>
+              <span>
+                dès maintenant en un clic et découvrez un monde de radios
+                personnalisées à portée de main !
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 export default Login;
