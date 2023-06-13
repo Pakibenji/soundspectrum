@@ -40,16 +40,18 @@ const Login = ({ setCurrUser, setShow }) => {
     setShow(true);
   };
   return (
-    <div>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        Email: <input type="email" name="email" placeholder="email" />
+    <div className="form-container">
+      <div className="form-card">
+        <form ref={formRef} onSubmit={handleSubmit}>
+          Email: <input type="email" name="email" placeholder="email" />
+          <br />
+          Password:{" "}
+          <input type="password" name="password" placeholder="password" />
+          <br />
+          <input type="submit" value="Login" />
+        </form>
         <br />
-        Password:{" "}
-        <input type="password" name="password" placeholder="password" />
-        <br />
-        <input type="submit" value="Login" />
-      </form>
-      <br />
+      </div>
       <div>
         Pas encore inscrit?
         <NavLink to="/signup" onClick={handleClick}>
