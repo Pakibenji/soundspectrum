@@ -39,15 +39,8 @@
   .authenticate {
     display: flex;
     justify-content: center;
-    button {
-      @include button;
-      margin: 60px;
-    }
-    button:hover {
-      transform: scale(1.2);
-      transition: 0.5s;
-    }
   }
+  
   .header-container {
     width: 80%;
     margin: 0 auto;

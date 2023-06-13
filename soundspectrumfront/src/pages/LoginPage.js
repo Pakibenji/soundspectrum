@@ -25,10 +25,6 @@ const LoginPage = () => {
       <div>
         <Login currUser={currUser} setCurrUser={setCurrUser} />
       </div>
-      <div>
-        Pas encore inscrit?
-        <NavLink to="/signup">s'inscrire</NavLink>{" "}
-      </div>
     </>
   );
 };
