@@ -14,8 +14,5 @@ Rails.application.routes.draw do
       registrations: 'users/registrations',
     }
     
-    authenticate :user, ->(user) { user.role == "admin" } do 
-      mount Avo::Engine => Avo.configuration.root_path 
-      
-    end
+    mount Avo::Engine, at: Avo.configuration.root_path
 end

@@ -1,6 +1,5 @@
 import { useRef } from "react";
-import { NavLink } from "react-router-dom";
-const Login = ({ setCurrUser, setShow }) => {
+const Login = ({ setCurrUser }) => {
   const formRef = useRef();
   const login = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3000/login";
@@ -35,10 +34,6 @@ const Login = ({ setCurrUser, setShow }) => {
     login(userInfo, setCurrUser);
     e.target.reset();
   };
-  const handleClick = (e) => {
-    e.preventDefault();
-    setShow(true);
-  };
   return (
     <div className="form-container">
       <div className="form-card">
@@ -51,13 +46,6 @@ const Login = ({ setCurrUser, setShow }) => {
           <input type="submit" value="Login" />
         </form>
         <br />
-      </div>
-      <div>
-        Pas encore inscrit?
-        <NavLink to="/signup" onClick={handleClick}>
-          s'inscrire
-        </NavLink>{" "}
-      </div>
     </div>
   );
 };
