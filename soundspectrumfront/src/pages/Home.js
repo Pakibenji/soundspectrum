@@ -14,6 +14,7 @@ const Home = () => {
         <div className="title">
           <h1>SOUND SPECTRUM</h1>
           <p>Bienvenue sur Sound Spectrum</p>
+          </div>
         {currUser == null && (
           <div className="authenticate">
             {" "}

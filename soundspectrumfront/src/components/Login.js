@@ -47,6 +47,7 @@ const Login = ({ setCurrUser }) => {
         </form>
         <br />
     </div>
+    </div>
   );
 };
 export default Login;
