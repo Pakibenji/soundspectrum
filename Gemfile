@@ -51,4 +51,5 @@ gem 'devise-jwt'
 # 'dotenv-rails' is for storing secret key in ENV file
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'avo'
-
+gem 'rails_admin', '~> 3.1', '>= 3.1.2'
+gem "sassc-rails"
