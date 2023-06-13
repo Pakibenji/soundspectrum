@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'private/user'
 
   devise_for :users, 
@@ -14,5 +15,4 @@ Rails.application.routes.draw do
       registrations: 'users/registrations',
     }
     
-    mount Avo::Engine, at: Avo.configuration.root_path
 end
