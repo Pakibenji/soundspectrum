@@ -40,7 +40,7 @@ const Signup = ({ setCurrUser }) => {
   return (
     <>
 
-      <form ref={formRef} onSubmit={handleSubmit}>
+     
       <section className="title-form">
         <h1>Formulaire d'inscription</h1>
         <div className="form-container">
@@ -79,8 +79,6 @@ const Signup = ({ setCurrUser }) => {
           </div>
         </div>
       </section>
-      </form>
-
     </>
   );
 };
