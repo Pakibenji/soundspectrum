@@ -50,7 +50,7 @@ export default function Radio() {
   };
 
   return (
-    <div className="radio">
+    <div className="radio-card">
       <div className="filters">
         {filters.map((filter, index) => (
           <span
@@ -62,7 +62,7 @@ export default function Radio() {
           </span>
         ))}
       </div>
-      <div className="stations">
+      <div className="stations-container">
         {stations &&
           stations.map((station, index) => {
             return (

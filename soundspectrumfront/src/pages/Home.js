@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../assets/img/spectrum.gif";
 import notes from "../assets/img/notes.gif";
 import Logout from "../components/Logout";
+import Favoris from "../components/Favoris";
 
 const Home = () => {
   const currUser = localStorage.getItem("token");
@@ -44,12 +45,36 @@ const Home = () => {
             </p>
           </div>
         )}
-        {currUser != null && <Logout setCurrUser={setCurrUser} />}
+        {currUser != null && (
+          <div className="logout">
+            <Logout setCurrUser={setCurrUser} />
+            <a href="http://localhost:3000/admin">Panel admin</a>
+          </div>
+        )}
         <div className="portée">
           <img src={notes} alt="gif portée" />
         </div>
       </section>
-      <Radio />
+      <section className="radio-main">
+        <div className="favoris-container">
+          <div className="favoris-title">
+            <h1>Mes radios favorites</h1>
+          </div>
+          <div className="favoris-radios">
+            <p>Commencez à ajouter vos radios favorites</p>
+            <Favoris />
+          </div>
+        </div>
+        <div className="radios-container">
+          <div className="radios-title">
+            <h1>radios</h1>
+          </div>
+          <div className="radios">
+          <Radio />
+          </div>
+        </div>
+        
+      </section>
       <Footer />
     </>
   );

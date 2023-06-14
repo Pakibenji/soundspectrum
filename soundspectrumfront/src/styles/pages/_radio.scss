@@ -1,0 +1,78 @@
+.radio-card {
+  height: 100%;
+  width: 100%;
+  margin-top: 60px;
+  & .filters {
+    display: flex;
+    background: $primary;
+    height: 50px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    font-family: $font2;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+  }
+  & .stations-container {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    & .station {
+      width: 300px;
+      height: 180px;
+      margin: 60px 20px 20px 20px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      border: 3px solid $primary;
+      background: url("../../assets/img/all.webp") center/cover;
+      color: black;
+      & .name {
+        background: $primary;
+        opacity: 0.9;
+        font-family: $font2;
+        height: 39px;
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    & .player {
+      height: 100px;
+      background: transparent;
+    }
+    & .rhap_main-controls {
+      & button {
+        box-shadow: none;
+        & svg {
+          color: $primary;
+        }
+      }
+    }
+    & .rhap_volume-container {
+      & button {
+        box-shadow: none;
+        color: $primary;
+      }
+      & .rhap_volume-bar {
+        background: $primary;
+        width: 80px;
+      }
+      & .rhap_volume-indicator {
+        background: $primary;
+      }
+    }
+  }
+}

@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
   padding: 30px;
   color: white;
-  .logo {
+  & .logo {
     @include logo;
     position: absolute;
     top: 0;
@@ -14,21 +14,21 @@
     padding: 10px;
     width: 225px;
   }
-  .title {
+  & .title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
     width: 100%;
-    h1 {
+    & h1 {
       color: #fed11b;
       font-size: 9rem;
       font-family: $font;
       letter-spacing: 15px;
       text-shadow: 4px 4px 2px rgba(254, 209, 27, 0.6);
     }
-    p {
+    & p {
       color: $grey;
       margin-top: 60px;
       font-size: 4rem;
@@ -36,15 +36,15 @@
       letter-spacing: 5px;
     }
   }
-  .authenticate {
+  & .authenticate {
     display: flex;
     justify-content: center;
   }
-  
-  .header-container {
+
+  & .header-container {
     width: 80%;
     margin: 0 auto;
-    p {
+    & p {
       font-size: 1.5rem;
       text-align: center;
       color: $grey;
@@ -54,11 +54,100 @@
       padding: 10px;
     }
   }
-  .portée {
+  & .logout {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    gap: 15px;
+    & button {
+      margin: 20px;
+    }
+    & a {
+      margin: 0;
+      color: $grey;
+      text-align: center;
+    }
+  }
+  & .portée {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
+  }
+}
+.radio-main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  & .favoris-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 30vh;
+    height: auto;
+    width: 100%;
+
+    & .favoris-title {
+      width: 90%;
+      height: 50px;
+      background: $grey;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      & h1 {
+        font-family: $font2;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+      }
+    }
+    & .favoris-radios {
+      height: auto;
+      & p {
+        color: $grey;
+        font-family: $font2;
+        font-size: 1.5rem;
+        text-align: center;
+        letter-spacing: 3px;
+        padding: 10px;
+      }
+    }
+  }
+  & .radios-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+
+    & .radios-title {
+      width: 90%;
+      height: 50px;
+      background: $grey;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      & h1 {
+        font-family: $font2;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+      }
+    }
+    & .radios {
+      height: auto;
+      width: 100%;
+    }
   }
 }
