@@ -5,14 +5,24 @@ import SignupPage from "./pages/SignupPage";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-
+import { useState } from "react";
 const App = () => {
+  const [currUser, setCurrUser] = useState(null);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
+        <Route
+          path="/"
+          element={<Home currUser={currUser} setCurrUser={setCurrUser} />}
+        />
+        <Route
+          path="/login"
+          element={<LoginPage currUser={currUser} setCurrUser={setCurrUser} />}
+        />
+        <Route
+          path="/signup"
+          element={<SignupPage currUser={currUser} setCurrUser={setCurrUser} />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
