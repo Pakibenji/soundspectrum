@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import Login from "../components/Login";
 
-const LoginPage = () => {
-  const [currUser, setCurrUser] = useState(null);
+const LoginPage = ({ currUser, setCurrUser }) => {
   return (
     <>
       <Login currUser={currUser} setCurrUser={setCurrUser} />

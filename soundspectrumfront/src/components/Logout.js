@@ -12,6 +12,7 @@ const Logout = ({ setCurrUser }) => {
       if (!response.ok) throw data.error;
       localStorage.removeItem("token");
       setCurrUser(null);
+      alert("Vous êtes déconnecté");
     } catch (error) {
       console.log("error", error);
     }

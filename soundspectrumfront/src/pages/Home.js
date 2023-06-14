@@ -5,20 +5,16 @@ import logo from "../assets/img/spectrum.gif";
 import notes from "../assets/img/notes.gif";
 import Logout from "../components/Logout";
 
-const Home = () => {
-  const currUser = localStorage.getItem("token");
-  const setCurrUser = (data) => {
-    localStorage.setItem("token", data.token);
-  };
+const Home = ({ currUser, setCurrUser }) => {
   return (
     <>
       <section className="header">
         <img className="logo" src={logo} alt="logo sound spectrum" />
         <div className="title">
           <h1>SOUND SPECTRUM</h1>
-          {currUser == null && <p>Bienvenue sur Sound Spectrum</p>}
+          {currUser === null && <p>Bienvenue sur Sound Spectrum</p>}
         </div>
-        {currUser == null && (
+        {currUser === null && (
           <div className="authenticate">
             {" "}
             <NavLink to="/login">
@@ -29,7 +25,7 @@ const Home = () => {
             </NavLink>{" "}
           </div>
         )}
-        {currUser == null && (
+        {currUser === null && (
           <div className="header-container">
             <p className="soundspectrum-description">
               Bienvenue sur Sound Spectrum, votre destination ultime pour le
