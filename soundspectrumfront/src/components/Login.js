@@ -42,7 +42,7 @@ const Login = ({ setCurrUser }) => {
   };
   return (
     <>
-      <section className="connexion">
+      <section className="title-form">
         <h1>Connexion</h1>
         <div className="form-container">
           <div className="logo">
@@ -68,8 +68,7 @@ const Login = ({ setCurrUser }) => {
                 />
                 <i className="fa-solid fa-lock" id="lock"></i>
               </div>
-
-              <button className="login" type="submit">
+              <button className="button-form" type="submit">
                 Connexion
               </button>
             </form>

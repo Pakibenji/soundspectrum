@@ -1,7 +1,9 @@
 import { useRef } from "react";
+
 import { NavLink, useNavigate } from "react-router-dom";
 const Signup = ({ setCurrUser }) => {
   const navigate = useNavigate();
+
   const formRef = useRef();
   const signup = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3000/signup";
@@ -37,6 +39,7 @@ const Signup = ({ setCurrUser }) => {
   };
   return (
     <>
+
       <form ref={formRef} onSubmit={handleSubmit}>
         Email: <input type="email" name="email" placeholder="email" />
         <br />
@@ -49,6 +52,7 @@ const Signup = ({ setCurrUser }) => {
       <div>
         Déja inscrit? <NavLink to="/login">Se connecter</NavLink>{" "}
       </div>
+
     </>
   );
 };
