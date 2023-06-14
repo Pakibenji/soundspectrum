@@ -1,9 +1,10 @@
 import { useRef } from "react";
 import logo from "../assets/img/spectrum.gif";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = ({ setCurrUser }) => {
   const formRef = useRef();
+  const navigate = useNavigate();
   const login = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3000/login";
     try {
@@ -20,6 +21,8 @@ const Login = ({ setCurrUser }) => {
       console.log(response.headers.get("Authorization"));
       localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrUser(data);
+      navigate("/", { replace: true, state: { from: "login" } });
+      alert("Vous êtes connecté");
     } catch (error) {
       console.log("error", error);
     }
@@ -54,7 +57,7 @@ const Login = ({ setCurrUser }) => {
                   name="email"
                   placeholder="Email"
                 />
-                <i class="fa-regular fa-envelope" id="email"></i>
+                <i className="fa-regular fa-envelope" id="email"></i>
               </div>
               <div className="password-container">
                 <input
@@ -63,7 +66,7 @@ const Login = ({ setCurrUser }) => {
                   name="password"
                   placeholder="Mot de passe"
                 />
-                <i class="fa-solid fa-lock" id="lock"></i>
+                <i className="fa-solid fa-lock" id="lock"></i>
               </div>
 
               <button className="login" type="submit">

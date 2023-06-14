@@ -1,6 +1,7 @@
 import { useRef } from "react";
-
-const Signup = ({ setCurrUser, setShow }) => {
+import { NavLink, useNavigate } from "react-router-dom";
+const Signup = ({ setCurrUser }) => {
+  const navigate = useNavigate();
   const formRef = useRef();
   const signup = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3000/signup";
@@ -18,6 +19,8 @@ const Signup = ({ setCurrUser, setShow }) => {
 
       localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrUser(data);
+      navigate("/", { replace: true, state: { from: "signup" } });
+      alert("Vous êtes connecté");
     } catch (error) {
       console.log("error", error);
     }
@@ -33,7 +36,7 @@ const Signup = ({ setCurrUser, setShow }) => {
     e.target.reset();
   };
   return (
-    <div>
+    <>
       <form ref={formRef} onSubmit={handleSubmit}>
         Email: <input type="email" name="email" placeholder="email" />
         <br />
@@ -43,7 +46,10 @@ const Signup = ({ setCurrUser, setShow }) => {
         <input type="submit" value="Submit" />
       </form>
       <br />
-    </div>
+      <div>
+        Déja inscrit? <NavLink to="/login">Se connecter</NavLink>{" "}
+      </div>
+    </>
   );
 };
 export default Signup;
