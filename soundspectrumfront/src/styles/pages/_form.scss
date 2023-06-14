@@ -1,4 +1,4 @@
-.connexion {
+.title-form {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -73,7 +73,7 @@
       @include fa-lock;
       position: absolute;
     }
-    & .login {
+    & .button-form {
       margin: 0;
     }
   }

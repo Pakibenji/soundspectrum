@@ -15,9 +15,6 @@ const SignupPage = () => {
   return (
     <>
       <Signup currUser={currUser} setCurrUser={setCurrUser} />
-      <div>
-        Déja inscrit? <NavLink to="/login">Se connecter</NavLink>{" "}
-      </div>
     </>
   );
 };
