@@ -24,6 +24,9 @@ const Login = ({ setCurrUser }) => {
       navigate("/", { replace: true, state: { from: "login" } });
       alert("Vous êtes connecté");
     } catch (error) {
+      alert(
+        "L'adresse mail ou le mot de passe est erroné ou vous n'êtes pas inscrit"
+      );
       console.log("error", error);
     }
   };
@@ -56,6 +59,7 @@ const Login = ({ setCurrUser }) => {
                   type="email"
                   name="email"
                   placeholder="Email"
+                  required
                 />
                 <i className="fa-regular fa-envelope" id="email"></i>
               </div>
@@ -65,6 +69,7 @@ const Login = ({ setCurrUser }) => {
                   type="password"
                   name="password"
                   placeholder="Mot de passe"
+                  required
                 />
                 <i className="fa-solid fa-lock" id="lock"></i>
               </div>
