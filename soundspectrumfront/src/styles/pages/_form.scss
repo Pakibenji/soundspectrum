@@ -74,6 +74,14 @@
       @include fa-lock;
       position: absolute;
     }
+    & .mdp-validate {
+      font-size: 0.8rem;
+      position: absolute;
+      bottom: -20px;
+      font-family: $font2;
+      letter-spacing: 1px;
+      font-weight: 100;
+    }
     & .button-form {
       margin: 0;
     }

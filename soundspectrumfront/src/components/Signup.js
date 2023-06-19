@@ -99,10 +99,7 @@ const Signup = ({ setCurrUser }) => {
                   required
                 />
                 <i class="fa-solid fa-lock" id="lock"></i>
-                <p style={{ fontSize: "0.6rem" }}>
-                  {" "}
-                  8 caractères minimum et contenir A-Z, a-z, 0-9, !@#%&
-                </p>
+                <p className="mdp-validate"> 8 caractères minimum et contenir A-Z, a-z, 0-9, !@#%&</p>
               </div>
 
               <div className="password-container">

@@ -7,7 +7,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import { useState } from "react";
 const App = () => {
-  const [currUser, setCurrUser] = useState(null);
+  const [currUser, setCurrUser] = useState("");
   return (
     <BrowserRouter>
       <Routes>

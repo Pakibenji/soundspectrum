@@ -13,9 +13,9 @@ const Home = ({ currUser, setCurrUser }) => {
         <img className="logo" src={logo} alt="logo sound spectrum" />
         <div className="title">
           <h1>SOUND SPECTRUM</h1>
-          {currUser === null && <p>Bienvenue sur Sound Spectrum</p>}
+          {currUser == null && <p>Bienvenue sur Sound Spectrum</p>}
         </div>
-        {currUser === null && (
+        {currUser == null && (
           <div className="authenticate">
             {" "}
             <NavLink to="/login">
@@ -26,7 +26,7 @@ const Home = ({ currUser, setCurrUser }) => {
             </NavLink>{" "}
           </div>
         )}
-        {currUser === null && (
+        {currUser == null && (
           <div className="header-container">
             <p className="soundspectrum-description">
               Bienvenue sur Sound Spectrum, votre destination ultime pour le
