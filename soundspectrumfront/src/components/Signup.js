@@ -1,8 +1,20 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import logo from "../assets/img/spectrum.gif";
 import { NavLink, useNavigate } from "react-router-dom";
 const Signup = ({ setCurrUser }) => {
   const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
+  const handleChange = () => setCheckbox(!checkbox);
+  //!Const Validations mdp
+  const passwordHasLowercaseLetter = /[a-z]/.test(password);
+  const passwordHasUppercaseLetter = /[A-Z]/.test(password);
+  const passwordHasSpecialCharacter = /^(?=.*[!@#\$%\^&\*\?\:\;\,])/.test(
+    password
+  );
+  const passwordHasNumber = /[0-9]/.test(password);
+  const passwordHasValidLength = password.length >= 8;
 
   const formRef = useRef();
   const signup = async (userInfo, setCurrUser) => {
@@ -25,6 +37,7 @@ const Signup = ({ setCurrUser }) => {
       alert("Vous êtes connecté");
     } catch (error) {
       console.log("error", error);
+      alert("Cette adresse existe déjà!");
     }
   };
   const handleSubmit = (e) => {
@@ -34,9 +47,28 @@ const Signup = ({ setCurrUser }) => {
     const userInfo = {
       user: { email: data.email, password: data.password },
     };
-    signup(userInfo, setCurrUser);
-    e.target.reset();
+    if (
+      passwordHasLowercaseLetter &&
+      passwordHasUppercaseLetter &&
+      passwordHasSpecialCharacter &&
+      passwordHasNumber &&
+      passwordHasValidLength
+    ) {
+      if (password === confirmPassword && checkbox === true) {
+        signup(userInfo, setCurrUser);
+        e.target.reset();
+      } else if (password !== confirmPassword) {
+        alert("les mots de passe ne correspondent pas");
+      } else if (checkbox === false) {
+        alert("Veuillez accepter les RGPD");
+      }
+    } else {
+      alert(
+        "Le mot de passe doit contenir un caractère minuscule, majuscule, un chiffre, un caractère spécial et au moins huit caractères!"
+      );
+    }
   };
+
   return (
     <>
       <section className="title-form">
@@ -53,24 +85,34 @@ const Signup = ({ setCurrUser }) => {
                   type="email"
                   name="email"
                   placeholder="Email"
+                  required
                 />
                 <i class="fa-regular fa-envelope" id="email"></i>
               </div>
               <div className="password-container">
                 <input
                   className="input-password"
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   name="password"
                   placeholder="Mot de passe"
+                  required
                 />
                 <i class="fa-solid fa-lock" id="lock"></i>
+                <p style={{ fontSize: "0.6rem" }}>
+                  {" "}
+                  8 caractères minimum et contenir A-Z, a-z, 0-9, !@#%&
+                </p>
               </div>
+
               <div className="password-container">
                 <input
-                  className="input-password"
+                  className="input-password-confirm"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   type="password"
                   name="password"
                   placeholder=" Confirmation mot de passe"
+                  required
                 />
                 <i class="fa-solid fa-lock" id="lock"></i>
               </div>
@@ -78,7 +120,13 @@ const Signup = ({ setCurrUser }) => {
                 s'inscrire
               </button>
               <div className="rgpd-container">
-                <input type="checkbox" name="rgpd" id="rgpd" />
+                <input
+                  type="checkbox"
+                  name="rgpd"
+                  id="rgpd"
+                  checked={checkbox}
+                  onChange={handleChange}
+                />
                 <label htmlFor="rgpd">
                   Accepter les <a href="/rgpd">RGPD</a>
                 </label>
