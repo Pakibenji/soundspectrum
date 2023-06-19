@@ -39,8 +39,6 @@ const Signup = ({ setCurrUser }) => {
   };
   return (
     <>
-
-     
       <section className="title-form">
         <h1>Formulaire d'inscription</h1>
         <div className="form-container">
@@ -67,9 +65,24 @@ const Signup = ({ setCurrUser }) => {
                 />
                 <i class="fa-solid fa-lock" id="lock"></i>
               </div>
+              <div className="password-container">
+                <input
+                  className="input-password"
+                  type="password"
+                  name="password"
+                  placeholder=" Confirmation mot de passe"
+                />
+                <i class="fa-solid fa-lock" id="lock"></i>
+              </div>
               <button className="button-form" type="submit">
                 s'inscrire
               </button>
+              <div className="rgpd-container">
+                <input type="checkbox" name="rgpd" id="rgpd" />
+                <label htmlFor="rgpd">
+                  Accepter les <a href="/rgpd">RGPD</a>
+                </label>
+              </div>
             </form>
             <div className="navlink-container">
               <NavLink className="inscription" to="/login">

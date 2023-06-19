@@ -37,7 +37,7 @@
       flex-direction: column;
       align-items: center;
       padding: 50px;
-      height: 500px;
+      height: 560px;
     }
     & .email-container {
       position: relative;
@@ -76,11 +76,18 @@
     & .button-form {
       margin: 0;
     }
+    & .rgpd-container {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   & .navlink-container {
     font-family: $font2;
     letter-spacing: 1px;
-    padding: 20px;
+    padding: 5px;
     margin: 15px;
     & .inscription {
       text-decoration: 1px underline black;
@@ -94,6 +101,10 @@
         text-decoration: 1px underline $primary;
         text-underline-offset: 2px;
       }
+    }
+    & span {
+      
+      line-height: 1.5rem;
     }
   }
 }
