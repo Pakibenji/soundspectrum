@@ -44,33 +44,37 @@ const Home = ({ currUser, setCurrUser }) => {
         {currUser != null && (
           <div className="logout">
             <Logout setCurrUser={setCurrUser} />
-            <a href="http://localhost:3000/admin">Panel admin</a>
+            {currUser.role === "admin" && (
+              <a href="http://localhost:3000/admin">Panel admin</a>
+            )}
           </div>
         )}
         <div className="portée">
           <img src={notes} alt="gif portée" />
         </div>
       </section>
-      <section className="radio-main">
-        <div className="favoris-container">
-          <div className="favoris-title">
-            <h1>Mes radios favorites</h1>
+      {currUser != null && (
+        <section className="radio-main">
+          <div className="favoris-container">
+            <div className="favoris-title">
+              <h1>Mes radios favorites</h1>
+            </div>
+            <div className="favoris-radios">
+              <p>Commencez à ajouter vos radios favorites</p>
+              <Favoris />
+            </div>
           </div>
-          <div className="favoris-radios">
-            <p>Commencez à ajouter vos radios favorites</p>
-            <Favoris />
+          <div className="radios-container">
+            <div className="radios-title">
+              <h1>radios</h1>
+            </div>
+            <div className="radios">
+              <Radio />
+            </div>
           </div>
-        </div>
-        <div className="radios-container">
-          <div className="radios-title">
-            <h1>radios</h1>
-          </div>
-          <div className="radios">
-          <Radio />
-          </div>
-        </div>
-        
-      </section>
+        </section>
+      )}
+
       <Footer />
     </>
   );
