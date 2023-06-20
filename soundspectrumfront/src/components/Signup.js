@@ -71,6 +71,11 @@ const Signup = ({ setCurrUser }) => {
 
   return (
     <>
+      <div className="link-accueil-container">
+        <NavLink className="link-accueil" to="/">
+          <p>retour à l'accueil</p>
+        </NavLink>
+      </div>
       <section className="title-form">
         <h1>Formulaire d'inscription</h1>
         <div className="form-container">
@@ -99,7 +104,10 @@ const Signup = ({ setCurrUser }) => {
                   required
                 />
                 <i class="fa-solid fa-lock" id="lock"></i>
-                <p className="mdp-validate"> 8 caractères minimum et contenir A-Z, a-z, 0-9, !@#%&</p>
+                <p className="mdp-validate">
+                  {" "}
+                  8 caractères minimum et contenir A-Z, a-z, 0-9, !@#%&
+                </p>
               </div>
 
               <div className="password-container">

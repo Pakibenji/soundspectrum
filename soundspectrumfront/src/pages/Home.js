@@ -72,10 +72,9 @@ const Home = ({ currUser, setCurrUser }) => {
               <Radio />
             </div>
           </div>
+          <Footer />
         </section>
       )}
-
-      <Footer />
     </>
   );
 };

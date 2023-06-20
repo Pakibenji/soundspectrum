@@ -4,6 +4,8 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Rgpd from "./pages/Rgpd";
+import Profil from "./pages/Profil";
 import NotFound from "./pages/NotFound";
 import { useState } from "react";
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
         />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/rgpd" element={<Rgpd />} />
+        <Route path="/profil" element={<Profil />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
