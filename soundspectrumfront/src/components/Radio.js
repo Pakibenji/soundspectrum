@@ -2,15 +2,25 @@ import React, { useEffect, useState } from "react";
 import { RadioBrowserApi } from "radio-browser-api";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-//import defaultImage from "./radio.jpg";
+import allImage from '../assets/img/all.webp';
+import classicalImage from '../assets/img/classical.webp';
+import countryImage from '../assets/img/country.webp';
+import danceImage from '../assets/img/dance.webp';
+import discoImage from '../assets/img/disco.webp';
+import houseImage from '../assets/img/house.webp';
+import jazzImage from '../assets/img/jazz.webp';
+import popImage from '../assets/img/pop.webp';
+import rapImage from '../assets/img/rap.webp';
+import retroImage from '../assets/img/retro.webp';
+import rockImage from '../assets/img/rock.webp';
 
 export default function Radio() {
   const [stations, setStations] = useState();
   const [stationFilter, setStationFilter] = useState("all");
+  const [imageFilter, setImageFilter] = useState(allImage);
 
   useEffect(() => {
     setupApi(stationFilter).then((data) => {
-      console.log(data);
       setStations(data);
     });
   }, [stationFilter]);
@@ -30,6 +40,43 @@ export default function Radio() {
 
     return stations;
   };
+ 
+  useEffect(() => {
+    switch (stationFilter) {
+      case "classical":
+        setImageFilter(classicalImage);
+        break;
+      case "country":
+        setImageFilter(countryImage);
+        break;
+      case "dance":
+        setImageFilter(danceImage);
+        break;
+      case "disco":
+        setImageFilter(discoImage);
+        break;
+      case "house":
+        setImageFilter(houseImage);
+        break;
+      case "jazz":
+        setImageFilter(jazzImage);
+        break;
+      case "pop":
+        setImageFilter(popImage);
+        break;
+      case "rap":
+        setImageFilter(rapImage);
+        break;
+      case "retro":
+        setImageFilter(retroImage);
+        break;
+      case "rock":
+        setImageFilter(rockImage);
+        break;
+      default:
+        setImageFilter(allImage);
+    }
+  }, [stationFilter]);
 
   const filters = [
     "all",
@@ -45,16 +92,13 @@ export default function Radio() {
     "rock",
   ];
 
-  const setDefaultSrc = (event) => {
-    //  event.target.src =
-  };
   return (
     <div className="radio-card">
       <div className="filters">
-        {filters.map((filter, index) => (
+        {filters.map((filter) => (
           <span
             id="buttonFilter"
-            key={index}
+            key={filter}
             className={stationFilter === filter ? "selected active" : ""}
             onClick={() => setStationFilter(filter)}
           >
@@ -66,7 +110,8 @@ export default function Radio() {
         {stations &&
           stations.map((station, index) => {
             return (
-              <div className="station" key={index}>
+              <div className="station" key={station.id}>
+                <img src={imageFilter} alt="" />
                 <div className="stationName">
                   <div className="name">{station.name}</div>
                 </div>
