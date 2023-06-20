@@ -45,6 +45,11 @@ const Login = ({ setCurrUser }) => {
   };
   return (
     <>
+     <div className="link-accueil-container">
+    <NavLink className="link-accueil" to="/">
+      <p>retour à l'accueil</p>
+    </NavLink>
+  </div>
       <section className="title-form">
         <h1>Connexion</h1>
         <div className="form-container">
@@ -60,6 +65,7 @@ const Login = ({ setCurrUser }) => {
                   name="email"
                   placeholder="Email"
                   required
+                  max="40"
                 />
                 <i className="fa-regular fa-envelope" id="email"></i>
               </div>
