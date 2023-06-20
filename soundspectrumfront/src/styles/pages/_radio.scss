@@ -2,24 +2,54 @@
   height: 100%;
   width: 100%;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   & .filters {
     display: flex;
-    background: $primary;
+    background: $background;
+    border: 3px solid $primary;
     height: 50px;
-    width: 90%;
+    width: 91.5%;
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
-    font-family: $font2;
-    letter-spacing: 3px;
-    font-size: 1.3rem;
-    text-transform: uppercase;
+    & span {
+      font-family: $font2;
+      letter-spacing: 1px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: $background;
+      border: 1px solid $primary;
+      height: 30px;
+      width: 90px;
+      border-radius: 10px;
+      background: $grey;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      transition: 0.2s;
+      &:hover {
+        cursor: pointer;
+        background: $primary;
+        transform: scale(1.1);
+        transition: 0.2s;
+      }
+    }
+    & .active {
+      background: $primary;
+      transform: scale(1.1);
+      transition: 0.2s;
+    }
   }
   & .stations-container {
     min-height: 100vh;
     height: auto;
+    width: 95%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

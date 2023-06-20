@@ -48,14 +48,14 @@ export default function Radio() {
   const setDefaultSrc = (event) => {
     //  event.target.src =
   };
-
   return (
     <div className="radio-card">
       <div className="filters">
         {filters.map((filter, index) => (
           <span
+            id="buttonFilter"
             key={index}
-            className={stationFilter === filter ? "selected" : ""}
+            className={stationFilter === filter ? "selected active" : ""}
             onClick={() => setStationFilter(filter)}
           >
             {filter}
