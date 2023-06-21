@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { NavLink } from "react-router-dom";
+import logo from "../assets/img/spectrum.gif";
 
 const FormContact = () => {
   const googleId = "service_bhbqujl";
@@ -34,18 +36,56 @@ const FormContact = () => {
   };
 
   return (
-    <div className="form-container">
-      <form ref={form} onSubmit={sendEmail}>
-        <label>Name</label>
-        <input type="text" name="name" required autoComplete="off" />
-        <label>Email</label>
-        <input type="email" name="email" required autoComplete="off" />
-        <label>Message</label>
-        <textarea name="message" required />
-        <input type="submit" value="Envoyer" />
-      </form>
-      <div className="form-message"></div>
-    </div>
+    <>
+     
+      <section className="title-form">
+      <div className="link-accueil-container">
+        <NavLink className="link-accueil" to="/">
+          <p>retour à l'accueil</p>
+        </NavLink>
+      </div>
+        <h1>contact</h1>
+        <div className="form-container">
+          <div className="logo">
+            <img src={logo} alt="logo sound spectrum" />
+          </div>
+          <div className="form-card">
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="name-container">
+                <input
+                  className="input-name"
+                  type="text"
+                  name="name"
+                  placeholder="Nom"
+                  required
+                  autoComplete="off"
+                />
+              </div>
+              <div className="email-container">
+                <input
+                  className="input-mail"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  autoComplete="off"
+                />
+              </div>
+              <div className="message-container">
+                <textarea
+                className="input-area"
+                  name="message"
+                  placeholder="Écrivez votre message"
+                  required
+                />
+              </div>
+              <button className="button-form" type="submit" value="Envoyer">Envoyer</button>
+            </form>
+            <div className="form-message"></div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

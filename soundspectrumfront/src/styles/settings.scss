@@ -86,9 +86,12 @@ button {
   font-size: 1.5rem;
 }
 .link-accueil-container {
-  margin: 20px 0 0 20px;
   font-family: $font2;
   letter-spacing: 1px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 30px;
   & .link-accueil {
     text-decoration: 1px underline black;
     text-underline-offset: 2px;

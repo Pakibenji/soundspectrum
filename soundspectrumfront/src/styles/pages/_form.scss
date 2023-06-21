@@ -39,9 +39,26 @@
       padding: 50px;
       height: 560px;
     }
+    & .name-container {
+      position: relative;
+      margin: 50px;
+    }
     & .email-container {
       position: relative;
       margin: 50px;
+    }
+    & .message-container {
+      position: relative;
+      margin: 50px;
+    }
+    & .input-name {
+      @include input;
+      &::placeholder {
+        opacity: 0.7;
+      }
+      &:focus {
+        outline: none;
+      }
     }
     & .input-mail {
       @include input;
@@ -55,6 +72,24 @@
     & #email {
       @include fa-enveloppe;
       position: absolute;
+    }
+    & .input-area {
+      height: 120px;
+      width: 350px;
+      border-radius: 10px;
+      border: 3px solid $primary;
+      padding: 10px;
+      resize: none;
+      font-family: $font2;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      text-align: center;
+      &::placeholder {
+        opacity: 0.7;
+      }
+      &:focus {
+        outline: none;
+      }
     }
     & .password-container {
       position: relative;
@@ -84,13 +119,6 @@
     }
     & .button-form {
       margin: 0;
-    }
-    & .rgpd-container {
-      height: 50px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
   & .navlink-container {

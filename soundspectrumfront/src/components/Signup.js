@@ -71,12 +71,12 @@ const Signup = ({ setCurrUser }) => {
 
   return (
     <>
-      <div className="link-accueil-container">
-        <NavLink className="link-accueil" to="/">
-          <p>retour à l'accueil</p>
-        </NavLink>
-      </div>
       <section className="title-form">
+        <div className="link-accueil-container">
+          <NavLink className="link-accueil" to="/">
+            <p>retour à l'accueil</p>
+          </NavLink>
+        </div>
         <h1>Formulaire d'inscription</h1>
         <div className="form-container">
           <div className="logo">
