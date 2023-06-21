@@ -4,12 +4,13 @@ import { NavLink } from "react-router-dom";
 const About = () => {
   return (
     <>
+      
+      <div className="about-container">
       <div className="link-accueil-container">
         <NavLink className="link-accueil" to="/">
           <p>retour à l'accueil</p>
         </NavLink>
       </div>
-      <div className="about-container">
         <h1>a propos</h1>
         <div className="about-text">
           <h3>Bienvenue sur Sound Spectrum !</h3>

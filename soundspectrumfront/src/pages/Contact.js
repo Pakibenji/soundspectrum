@@ -59,6 +59,7 @@ const FormContact = () => {
                   placeholder="Nom"
                   required
                   autoComplete="off"
+                  max="40"
                 />
               </div>
               <div className="email-container">
@@ -69,6 +70,7 @@ const FormContact = () => {
                   placeholder="Email"
                   required
                   autoComplete="off"
+                  max="40"
                 />
               </div>
               <div className="message-container">
@@ -77,6 +79,7 @@ const FormContact = () => {
                   name="message"
                   placeholder="Écrivez votre message"
                   required
+                  max="250"
                 />
               </div>
               <button className="button-form" type="submit" value="Envoyer">Envoyer</button>

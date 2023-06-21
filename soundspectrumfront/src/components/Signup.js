@@ -91,6 +91,7 @@ const Signup = ({ setCurrUser }) => {
                   name="email"
                   placeholder="Email"
                   required
+                  max="40"
                 />
                 <i class="fa-regular fa-envelope" id="email"></i>
               </div>
@@ -102,6 +103,7 @@ const Signup = ({ setCurrUser }) => {
                   name="password"
                   placeholder="Mot de passe"
                   required
+                  max="40"
                 />
                 <i class="fa-solid fa-lock" id="lock"></i>
                 <p className="mdp-validate">
@@ -118,6 +120,7 @@ const Signup = ({ setCurrUser }) => {
                   name="password"
                   placeholder=" Confirmation mot de passe"
                   required
+                  max="40"
                 />
                 <i class="fa-solid fa-lock" id="lock"></i>
               </div>
