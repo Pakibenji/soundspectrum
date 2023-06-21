@@ -60,7 +60,9 @@ const Home = ({ currUser, setCurrUser }) => {
               <h1>Mes radios favorites</h1>
             </div>
             <div className="favoris-radios">
-              <p>Commencez à ajouter vos radios favorites</p>
+              {localStorage.getItem("favorites") === null && (
+                <p>Commencez à ajouter vos radios favorites</p>
+              )}
               <Favoris />
             </div>
           </div>
