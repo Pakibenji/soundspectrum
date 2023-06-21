@@ -2,10 +2,9 @@ import React from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 
-const Favoris = () => {
+const Favoris = ({ setFavorites }) => {
   const favorites = JSON.parse(localStorage.getItem("favorites"));
-  // fonction qui supprime la station des favoris
-  const deleteFavorite = (station) => {
+  const deleteFavorite = () => {
     const favoritesList = JSON.parse(localStorage.getItem("favorites"));
     const index = favoritesList.findIndex(
       (station) => station.id === favorites.id
@@ -13,6 +12,7 @@ const Favoris = () => {
     favoritesList.splice(index, 1);
     localStorage.setItem("favorites", JSON.stringify(favoritesList));
     alert("Station supprimée des favoris");
+    setFavorites(favoritesList);
   };
   return (
     <div className="favorites">

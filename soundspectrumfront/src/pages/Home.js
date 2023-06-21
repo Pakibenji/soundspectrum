@@ -5,8 +5,10 @@ import logo from "../assets/img/spectrum.gif";
 import notes from "../assets/img/notes.gif";
 import Logout from "../components/Logout";
 import Favoris from "../components/Favoris";
+import { useState } from "react";
 
 const Home = ({ currUser, setCurrUser }) => {
+  const [favorites, setFavorites] = useState(null);
   return (
     <>
       <section className="header">
@@ -63,7 +65,7 @@ const Home = ({ currUser, setCurrUser }) => {
               {localStorage.getItem("favorites") === null && (
                 <p>Commencez à ajouter vos radios favorites</p>
               )}
-              <Favoris />
+              <Favoris favorites={favorites} setFavorites={setFavorites} />
             </div>
           </div>
           <div className="radios-container">
@@ -71,7 +73,7 @@ const Home = ({ currUser, setCurrUser }) => {
               <h2>radios</h2>
             </div>
             <div className="radios">
-              <Radio />
+              <Radio favorites={favorites} setFavorites={setFavorites} />
             </div>
           </div>
           <Footer />
