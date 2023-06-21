@@ -14,9 +14,8 @@ import rapImage from "../assets/img/rap.webp";
 import retroImage from "../assets/img/retro.webp";
 import rockImage from "../assets/img/rock.webp";
 
-export default function Radio() {
+export default function Radio({ setFavorites, favorites }) {
   const [stations, setStations] = useState();
-  const [favorites, setFavorites] = useState(null);
   const [stationFilter, setStationFilter] = useState("all");
   const [imageFilter, setImageFilter] = useState(allImage);
 
@@ -92,29 +91,20 @@ export default function Radio() {
     "retro",
     "rock",
   ];
-  useEffect(() => {
-    const favoritesList = JSON.parse(localStorage.getItem("favorites"));
-    if (favorites) {
-      if (favoritesList) {
-        const index = favoritesList.findIndex(
-          (station) => station.id === favorites.id
-        );
-        if (index === -1) {
-          favoritesList.push(favorites);
-          localStorage.setItem("favorites", JSON.stringify(favoritesList));
-          alert("Station ajoutée aux favoris");
-        } else {
-          favoritesList.splice(index, 1);
-          localStorage.setItem("favorites", JSON.stringify(favoritesList));
-          alert("Station supprimée des favoris");
-        }
-      } else {
-        localStorage.setItem("favorites", JSON.stringify([favorites]));
-        alert("Station ajoutée aux favoris");
-      }
-    }
-  }, [favorites]);
+  const toggleFavorite = (station) => {
+    const favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
 
+    const index = favoritesList.findIndex((fav) => fav.id === station.id);
+    if (index === -1) {
+      favoritesList.push(station);
+      alert("Station ajoutée aux favoris");
+    } else {
+      alert("Cette station est déjà dans vos favoris");
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favoritesList));
+    setFavorites(station);
+  };
   return (
     <div className="radio-card">
       <div className="filters">
@@ -155,12 +145,12 @@ export default function Radio() {
                   ) ? (
                     <i
                       className="fa-solid fa-star fa-lg"
-                      onClick={() => setFavorites(station)}
+                      onClick={() => toggleFavorite(station)}
                     ></i>
                   ) : (
                     <i
                       className="fa-regular fa-star fa-lg"
-                      onClick={() => setFavorites(station)}
+                      onClick={() => toggleFavorite(station)}
                     ></i>
                   )}
                 </div>
