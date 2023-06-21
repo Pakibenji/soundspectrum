@@ -93,8 +93,8 @@ export default function Radio() {
     "rock",
   ];
   useEffect(() => {
+    const favoritesList = JSON.parse(localStorage.getItem("favorites"));
     if (favorites) {
-      const favoritesList = JSON.parse(localStorage.getItem("favorites"));
       if (favoritesList) {
         const index = favoritesList.findIndex(
           (station) => station.id === favorites.id
@@ -104,7 +104,9 @@ export default function Radio() {
           localStorage.setItem("favorites", JSON.stringify(favoritesList));
           alert("Station ajoutée aux favoris");
         } else {
-          alert("Station déjà présente dans les favoris");
+          favoritesList.splice(index, 1);
+          localStorage.setItem("favorites", JSON.stringify(favoritesList));
+          alert("Station supprimée des favoris");
         }
       } else {
         localStorage.setItem("favorites", JSON.stringify([favorites]));
@@ -146,7 +148,22 @@ export default function Radio() {
                   customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
                   autoPlayAfterSrcChange={false}
                 />
-                <button onClick={() => setFavorites(station)}>favoris</button>
+                <div className="favorite-icon">
+                  {JSON.parse(localStorage.getItem("favorites")) &&
+                  JSON.parse(localStorage.getItem("favorites")).find(
+                    (fav) => fav.id === station.id
+                  ) ? (
+                    <i
+                      className="fa-solid fa-star fa-lg"
+                      onClick={() => setFavorites(station)}
+                    ></i>
+                  ) : (
+                    <i
+                      className="fa-regular fa-star fa-lg"
+                      onClick={() => setFavorites(station)}
+                    ></i>
+                  )}
+                </div>
               </div>
             );
           })}
