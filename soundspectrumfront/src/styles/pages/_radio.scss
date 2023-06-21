@@ -111,4 +111,18 @@
       }
     }
   }
+  & .favorite-icon {
+    color: $primary;
+    z-index: 1;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 116px;
+    left: 60px;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      transition: 0.5s;
+    }
+  }
 }
