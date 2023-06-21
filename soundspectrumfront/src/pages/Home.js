@@ -57,7 +57,7 @@ const Home = ({ currUser, setCurrUser }) => {
         <section className="radio-main">
           <div className="favoris-container">
             <div className="favoris-title">
-              <h1>Mes radios favorites</h1>
+              <h2>Mes radios favorites</h2>
             </div>
             <div className="favoris-radios">
               {localStorage.getItem("favorites") === null && (
@@ -68,7 +68,7 @@ const Home = ({ currUser, setCurrUser }) => {
           </div>
           <div className="radios-container">
             <div className="radios-title">
-              <h1>radios</h1>
+              <h2>radios</h2>
             </div>
             <div className="radios">
               <Radio />

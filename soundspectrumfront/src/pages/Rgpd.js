@@ -4,12 +4,12 @@ import { NavLink } from "react-router-dom";
 const Rgpd = () => {
   return (
     <>
+      <div className="rgpd-container">
       <div className="link-accueil-container">
         <NavLink className="link-accueil" to="/">
           <p>retour à l'accueil</p>
         </NavLink>
       </div>
-      <div className="rgpd-container">
         <h1>rgpd</h1>
         <div className="rgpd-text">
           <p>Politique de confidentialité et de protection des données :<br/> Chez Sound

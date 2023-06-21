@@ -85,7 +85,7 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  
+
   & .favoris-container {
     display: flex;
     flex-direction: column;
@@ -94,7 +94,7 @@
     width: 100%;
 
     & .favoris-title {
-      width: 90%;
+      width: 91.5%;
       height: 50px;
       background: $grey;
       border-radius: 10px;
@@ -102,7 +102,7 @@
       justify-content: center;
       align-items: center;
       margin: 0 auto;
-      & h1 {
+      & h2 {
         font-family: $font2;
         font-style: normal;
         font-weight: 700;
@@ -130,7 +130,7 @@
     width: 100%;
 
     & .radios-title {
-      width: 90%;
+      width: 91.5%;
       height: 50px;
       background: $grey;
       border-radius: 10px;
@@ -138,7 +138,7 @@
       justify-content: center;
       align-items: center;
       margin: 0 auto;
-      & h1 {
+      & h2 {
         font-family: $font2;
         font-style: normal;
         font-weight: 700;

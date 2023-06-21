@@ -76,6 +76,7 @@ const Login = ({ setCurrUser }) => {
                   name="password"
                   placeholder="Mot de passe"
                   required
+                  max="40"
                 />
                 <i className="fa-solid fa-lock" id="lock"></i>
               </div>
