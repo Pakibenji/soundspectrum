@@ -13,11 +13,13 @@ import popImage from "../assets/img/pop.webp";
 import rapImage from "../assets/img/rap.webp";
 import retroImage from "../assets/img/retro.webp";
 import rockImage from "../assets/img/rock.webp";
+import { useNavigate } from "react-router-dom";
 
 export default function Radio({ setFavorites, favorites }) {
   const [stations, setStations] = useState();
   const [stationFilter, setStationFilter] = useState("all");
   const [imageFilter, setImageFilter] = useState(allImage);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setupApi(stationFilter).then((data) => {
@@ -39,7 +41,8 @@ export default function Radio({ setFavorites, favorites }) {
       })
       .catch((error) => {
         console.log(error);
-        // window.location.reload();
+        navigate("/");
+        alert("un problème est survenu, rechargement de la page");
       });
     return stations;
   };
