@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import logo from "../assets/img/spectrum.gif";
 import { NavLink, useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 const Signup = ({ setCurrUser }) => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
@@ -15,8 +16,12 @@ const Signup = ({ setCurrUser }) => {
   );
   const passwordHasNumber = /[0-9]/.test(password);
   const passwordHasValidLength = password.length >= 8;
+  const googleId = "service_bhbqujl";
+  const templateId = "template_00shvju";
+  const publicKey = `${process.env.REACT_APP_ID}`;
 
   const formRef = useRef();
+
   const signup = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3000/signup";
     try {
@@ -34,7 +39,7 @@ const Signup = ({ setCurrUser }) => {
       localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrUser(data);
       navigate("/", { replace: true, state: { from: "signup" } });
-      alert("Vous êtes connecté");
+      alert("Vous êtes connecté, vous avez reçu un Email");
     } catch (error) {
       console.log("error", error);
       alert("Cette adresse existe déjà!");
@@ -42,6 +47,17 @@ const Signup = ({ setCurrUser }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    emailjs.sendForm(googleId, templateId, formRef.current, publicKey).then(
+      (result) => {
+        console.log(result.text);
+        
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
     const userInfo = {
