@@ -36,8 +36,11 @@ export default function Radio({ setFavorites, favorites }) {
       })
       .then((data) => {
         return data;
+      })
+      .catch((error) => {
+        console.log(error);
+        // window.location.reload();
       });
-
     return stations;
   };
 
