@@ -41,8 +41,8 @@ export default function Radio({ setFavorites, favorites }) {
       })
       .catch((error) => {
         console.log(error);
-        navigate("/");
         alert("un problème est survenu, rechargement de la page");
+        navigate("/");
       });
     return stations;
   };
